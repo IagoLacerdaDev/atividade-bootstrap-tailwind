@@ -14,14 +14,17 @@ Atividade Bootstrap/
 │   ├── index.html
 │   ├── style.css         # só a cor da marca e o fundo dos slides
 │   └── script.js         # preenche o modal e valida o formulário
-└── tailwind/             # desafio extra (Tailwind CSS 4.1 via CDN), independente da outra
+└── tailwind/             # desafio extra (Tailwind CSS 4.1 com build local), independente da outra
     ├── index.html
-    └── script.js         # menu, carrossel, modal e formulário em JS nativo
+    ├── script.js         # menu, carrossel, modal e formulário em JS nativo
+    ├── package.json      # dependências (tailwindcss + @tailwindcss/cli) e scripts
+    ├── src/input.css     # entrada: @import "tailwindcss" + tema (cores brand-*, animação)
+    └── dist/output.css   # CSS gerado pelo build (versionado para a página abrir sem build)
 ```
 
 ## Como rodar
 
-Não há build. No GitHub Codespaces (ou localmente), suba um servidor estático na pasta:
+No GitHub Codespaces (ou localmente), suba um servidor estático na pasta:
 
 ```bash
 python3 -m http.server 8000
@@ -29,6 +32,21 @@ python3 -m http.server 8000
 
 O Codespaces abre a porta 8000 automaticamente. Também funciona com a extensão **Live Server** do VS Code
 ou abrindo o `index.html` direto no navegador.
+
+### Build do Tailwind
+
+O `dist/output.css` já está no repositório, então a página funciona sem rodar nada. Para alterar classes, rode o build
+dentro da pasta `tailwind/`:
+
+```bash
+cd tailwind
+npm install       # só na primeira vez
+npm run dev       # fica observando os arquivos e regera o CSS a cada alteração
+npm run build     # gera a versão final minificada
+```
+
+O build lê `src/input.css`, varre `index.html` e `script.js` atrás das classes usadas e escreve em `dist/output.css`
+somente o CSS dessas classes (cerca de 31 KB, contra 259 KB de JavaScript da versão via CDN).
 
 ## Requisitos atendidos
 
@@ -80,7 +98,8 @@ O Tailwind é **mobile-first**: classe sem prefixo vale para todas as telas; `md
 | Tabela zebrada | `table table-striped` | `[&>tr:nth-child(odd)]:bg-slate-50` no `tbody` |
 | Scroll da tabela no mobile | `table-responsive` | `overflow-x-auto` |
 | Só para leitor de tela | `visually-hidden` | `sr-only` |
-| Cor personalizada | variáveis CSS `--bs-btn-bg` em `style.css` | `@theme { --color-brand-700: ... }` gera `bg-brand-700`, `text-brand-700`... |
+| Cor personalizada | variáveis CSS `--bs-btn-bg` em `style.css` | `@theme { --color-brand-700: ... }` em `src/input.css` gera `bg-brand-700`, `text-brand-700`... |
+| Integração | CDN (`<link>` + `<script>`) | build local com a CLI (`npm run build`) |
 
 ### Componentes: o que muda em cada versão
 
@@ -100,5 +119,6 @@ O Tailwind é **mobile-first**: classe sem prefixo vale para todas as telas; `md
 - **Tailwind**: controle total do visual sem sair do HTML, sem CSS próprio, e no build de produção só as classes usadas
   vão para o arquivo final. Em troca, o HTML fica com muitas classes e todo comportamento precisa de JS.
 
-> Observação: o CDN do Tailwind (`@tailwindcss/browser`) gera o CSS no navegador e é indicado para estudo/protótipos.
-> Em produção o recomendado é o build com a CLI do Tailwind ou PostCSS/Vite, que gera um CSS pequeno só com as classes usadas.
+> Por que build e não CDN? O CDN do Tailwind (`@tailwindcss/browser`) é um script que gera o CSS no navegador a cada
+> carregamento, indicado só para estudo e protótipos. O build com a CLI gera um arquivo CSS comum, pequeno, que funciona
+> sem internet e sem JavaScript para estilizar. O Bootstrap não precisa disso porque já vem com o CSS pronto.

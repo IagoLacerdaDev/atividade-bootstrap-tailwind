@@ -1,0 +1,14 @@
+{
+  "name": "portfolio-tailwind",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Versão Tailwind CSS da Atividade Bootstrap (portfólio de Iago Lacerda)",
+  "scripts": {
+    "build": "tailwindcss -i ./src/input.css -o ./dist/output.css --minify",
+    "dev": "tailwindcss -i ./src/input.css -o ./dist/output.css --watch"
+  },
+  "devDependencies": {
+    "@tailwindcss/cli": "4.1.11",
+    "tailwindcss": "4.1.11"
+  }
+}
