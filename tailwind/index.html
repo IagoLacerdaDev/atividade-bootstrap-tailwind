@@ -1,0 +1,438 @@
+<!doctype html>
+<html lang="pt-BR" class="scroll-smooth scroll-pt-20">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Portfólio de Iago Lacerda, Analista de QA com foco em automação de testes E2E, testes de API e CI/CD.">
+  <title>Iago Lacerda | Analista de QA (Tailwind CSS)</title>
+
+  <!-- Tailwind CSS v4 via CDN (gera as classes no navegador, sem build) -->
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4.1.11/dist/index.global.js"
+          integrity="sha384-XXN6/S6yXj8EpXnBTw3JGR9ZM+hixGxFCLYn0FHtg9cWh0ziKmAgTPEhecbCDOmj" crossorigin="anonymous"></script>
+
+  <!-- Tema: cria as cores "brand-*", que viram classes como bg-brand-700, text-brand-700, ring-brand-500... -->
+  <style type="text/tailwindcss">
+    @theme {
+      --color-brand-50: #eef3fb;
+      --color-brand-100: #dbe5f5;
+      --color-brand-500: #2f5aa8;
+      --color-brand-600: #244a8f;
+      --color-brand-700: #1b3a6b;
+      --color-brand-800: #142c52;
+      --color-brand-900: #0f2240;
+
+      /* Animação de entrada do modal -> classe animate-aparecer */
+      --animate-aparecer: aparecer 0.2s ease-out;
+      @keyframes aparecer {
+        from { opacity: 0; transform: translateY(1rem) scale(0.98); }
+        to { opacity: 1; transform: none; }
+      }
+    }
+  </style>
+</head>
+<body class="bg-white text-slate-800 antialiased">
+  <a href="#conteudo" class="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-[60] focus:rounded-lg focus:bg-white focus:px-4 focus:py-2 focus:text-brand-700 focus:shadow">Pular para o conteúdo</a>
+
+  <!-- ===================== HEADER ===================== -->
+  <header>
+    <!-- 1) NAVBAR: menu hambúrguer abaixo de 768px (md) -->
+    <nav class="fixed inset-x-0 top-0 z-50 bg-brand-700/95 shadow backdrop-blur" aria-label="Navegação principal">
+      <div class="mx-auto flex max-w-6xl flex-wrap items-center justify-between px-4 py-3">
+        <a href="#inicio" class="flex items-center gap-2 font-semibold text-white">
+          <span class="grid size-8 place-items-center rounded-lg bg-white text-sm font-extrabold text-brand-700" aria-hidden="true">IL</span>
+          Iago Lacerda
+        </a>
+
+        <button id="botaoMenu" type="button"
+                class="inline-flex items-center justify-center rounded-lg p-2 text-white hover:bg-white/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-white md:hidden"
+                aria-controls="menuPrincipal" aria-expanded="false" aria-label="Abrir menu de navegação">
+          <!-- ícone hambúrguer / X -->
+          <svg data-icone="abrir" class="size-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
+          <svg data-icone="fechar" class="hidden size-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" d="M6 6l12 12M18 6L6 18"/></svg>
+        </button>
+
+        <div id="menuPrincipal" class="hidden w-full md:block md:w-auto">
+          <ul class="mt-3 flex flex-col gap-1 border-t border-white/15 pt-3 md:mt-0 md:flex-row md:items-center md:gap-2 md:border-0 md:pt-0">
+            <li><a href="#destaques" class="block rounded-lg px-3 py-2 text-white/80 transition hover:bg-white/10 hover:text-white">Destaques</a></li>
+            <li><a href="#competencias" class="block rounded-lg px-3 py-2 text-white/80 transition hover:bg-white/10 hover:text-white">Competências</a></li>
+            <li><a href="#experiencia" class="block rounded-lg px-3 py-2 text-white/80 transition hover:bg-white/10 hover:text-white">Experiência</a></li>
+            <li><a href="#formacao" class="block rounded-lg px-3 py-2 text-white/80 transition hover:bg-white/10 hover:text-white">Formação</a></li>
+            <li><a href="#contato" class="mt-2 block rounded-lg bg-white px-4 py-2 text-center text-sm font-semibold text-brand-700 transition hover:bg-brand-50 md:mt-0 md:ml-2">Contato</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Apresentação -->
+    <div id="inicio" class="bg-gradient-to-br from-brand-700 to-brand-500 pt-16 text-white">
+      <div class="mx-auto grid max-w-6xl items-center gap-8 px-4 py-14 lg:grid-cols-12 lg:py-20">
+        <div class="lg:col-span-7">
+          <span class="inline-block rounded-full bg-white px-3 py-1 text-xs font-semibold text-brand-700">Remoto, híbrido ou presencial · Lauro de Freitas, BA</span>
+          <h1 class="mt-4 text-4xl font-bold tracking-tight sm:text-5xl">Iago César Lacerda Santos</h1>
+          <p class="mt-3 text-lg font-semibold text-white/85 sm:text-xl">Analista de QA · Automação de Testes E2E · Testes de API · CI/CD</p>
+          <p class="mt-4 max-w-2xl text-white/80">
+            Atuo no ciclo completo de qualidade: estratégia de testes baseada em risco, casos de teste,
+            testes funcionais, de regressão e de API, critérios de aceite e report de bugs com análise
+            de causa raiz no front-end, na API e no banco.
+          </p>
+          <div class="mt-6 flex flex-wrap gap-3">
+            <a href="#contato" class="rounded-xl bg-white px-6 py-3 font-semibold text-brand-700 shadow transition hover:bg-brand-50">Fale comigo</a>
+            <button type="button" data-experiencia="tcc"
+                    class="rounded-xl border border-white/70 px-6 py-3 font-semibold text-white transition hover:bg-white hover:text-brand-700">
+              Ver projeto do TCC
+            </button>
+          </div>
+        </div>
+
+        <aside class="rounded-2xl bg-white p-6 text-slate-800 shadow-2xl lg:col-span-5" aria-labelledby="resumoTitulo">
+          <h2 id="resumoTitulo" class="mb-4 text-lg font-semibold text-brand-700">Resumo rápido</h2>
+          <dl class="grid grid-cols-[auto_1fr] gap-x-6 gap-y-2 text-sm">
+            <dt class="text-slate-500">Foco</dt>
+            <dd class="font-semibold">Cypress, Playwright, Selenium</dd>
+            <dt class="text-slate-500">Pipelines</dt>
+            <dd class="font-semibold">GitLab CI, GitHub Actions</dd>
+            <dt class="text-slate-500">Formação</dt>
+            <dd class="font-semibold">Eng. de Software · UCSAL (12/2026)</dd>
+            <dt class="text-slate-500">Idiomas</dt>
+            <dd class="font-semibold">Inglês avançado, Espanhol básico</dd>
+          </dl>
+        </aside>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===================== MAIN ===================== -->
+  <main id="conteudo">
+
+    <!-- 2) CARROSSEL: trilho flex que desliza com translateX + transition -->
+    <section id="destaques" class="py-16" aria-labelledby="destaquesTitulo">
+      <div class="mx-auto max-w-6xl px-4">
+        <h2 id="destaquesTitulo" class="text-3xl font-bold text-brand-700">Destaques</h2>
+        <p class="mt-2 mb-6 text-slate-500">Três entregas que resumem minha atuação em qualidade de software.</p>
+
+        <div id="carrossel" class="group relative overflow-hidden rounded-3xl shadow-lg"
+             role="region" aria-roledescription="carrossel" aria-label="Destaques da carreira">
+          <div data-trilho class="flex transition-transform duration-700 ease-in-out motion-reduce:transition-none">
+            <article class="flex min-h-[340px] w-full shrink-0 items-center bg-gradient-to-br from-brand-700 to-brand-500 px-6 py-12 text-white sm:px-16 md:px-24"
+                     role="group" aria-roledescription="slide" aria-label="1 de 3">
+              <div class="max-w-3xl">
+                <p class="text-xs font-semibold tracking-wider text-white/75 uppercase">Pacto Soluções · 2025–2026</p>
+                <h3 class="mt-2 text-3xl font-bold md:text-4xl">Suíte E2E em Cypress + TypeScript</h3>
+                <p class="mt-3 text-lg text-white/90">Testes baseados em risco, isolados e independentes, rodando em paralelo no GitLab CI a cada merge request.</p>
+              </div>
+            </article>
+            <article class="flex min-h-[340px] w-full shrink-0 items-center bg-gradient-to-br from-emerald-800 to-emerald-600 px-6 py-12 text-white sm:px-16 md:px-24"
+                     role="group" aria-roledescription="slide" aria-label="2 de 3">
+              <div class="max-w-3xl">
+                <p class="text-xs font-semibold tracking-wider text-white/75 uppercase">TCC · UCSAL 2026</p>
+                <h3 class="mt-2 text-3xl font-bold md:text-4xl">Avaliação de busca semântica com RAG</h3>
+                <p class="mt-3 text-lg text-white/90">Harness em Python com LLM as a judge, rubrica própria e análise estatística com pandas e SciPy.</p>
+              </div>
+            </article>
+            <article class="flex min-h-[340px] w-full shrink-0 items-center bg-gradient-to-br from-violet-800 to-purple-600 px-6 py-12 text-white sm:px-16 md:px-24"
+                     role="group" aria-roledescription="slide" aria-label="3 de 3">
+              <div class="max-w-3xl">
+                <p class="text-xs font-semibold tracking-wider text-white/75 uppercase">Infinity School · 2023–2024</p>
+                <h3 class="mt-2 text-3xl font-bold md:text-4xl">Ensinando automação com Cypress</h3>
+                <p class="mt-3 text-lg text-white/90">Aulas de testes E2E e boas práticas de QA para turmas de desenvolvimento full stack.</p>
+              </div>
+            </article>
+          </div>
+
+          <!-- Anterior / próximo -->
+          <button type="button" data-anterior aria-label="Slide anterior"
+                  class="absolute top-1/2 left-2 hidden size-10 -translate-y-1/2 place-items-center rounded-full bg-black/25 text-white transition hover:bg-black/45 focus-visible:ring-2 focus-visible:ring-white sm:grid">
+            <svg class="size-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M15 18l-6-6 6-6"/></svg>
+          </button>
+          <button type="button" data-proximo aria-label="Próximo slide"
+                  class="absolute top-1/2 right-2 hidden size-10 -translate-y-1/2 place-items-center rounded-full bg-black/25 text-white transition hover:bg-black/45 focus-visible:ring-2 focus-visible:ring-white sm:grid">
+            <svg class="size-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 6l6 6-6 6"/></svg>
+          </button>
+
+          <!-- Indicadores (dots): criados no script.js, um por slide -->
+          <div data-indicadores class="absolute inset-x-0 bottom-4 flex justify-center gap-2"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3) CARDS: grid de 1 / 2 / 3 colunas -->
+    <section id="competencias" class="bg-slate-50 py-16" aria-labelledby="competenciasTitulo">
+      <div class="mx-auto max-w-6xl px-4">
+        <h2 id="competenciasTitulo" class="text-3xl font-bold text-brand-700">Competências</h2>
+        <p class="mt-2 mb-6 text-slate-500">Ferramentas e práticas que uso no dia a dia.</p>
+
+        <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+          <article class="flex flex-col rounded-2xl bg-white p-6 shadow-sm ring-1 ring-slate-200 transition hover:-translate-y-1 hover:shadow-md">
+            <span class="grid size-12 place-items-center rounded-xl bg-brand-50 text-sm font-extrabold text-brand-700" aria-hidden="true">E2E</span>
+            <h3 class="mt-4 text-lg font-semibold">Automação de testes</h3>
+            <p class="mt-2 flex-1 text-slate-500">Cypress (avançado), Playwright e Selenium para testes E2E, de API e regressão automatizada.</p>
+            <div class="mt-4 flex flex-wrap gap-2 text-xs font-semibold">
+              <span class="rounded-full bg-brand-700 px-2.5 py-1 text-white">Cypress</span>
+              <span class="rounded-full bg-slate-200 px-2.5 py-1 text-slate-700">Playwright</span>
+              <span class="rounded-full bg-slate-200 px-2.5 py-1 text-slate-700">Selenium</span>
+            </div>
+          </article>
+          <article class="flex flex-col rounded-2xl bg-white p-6 shadow-sm ring-1 ring-slate-200 transition hover:-translate-y-1 hover:shadow-md">
+            <span class="grid size-12 place-items-center rounded-xl bg-brand-50 text-sm font-extrabold text-brand-700" aria-hidden="true">QA</span>
+            <h3 class="mt-4 text-lg font-semibold">Práticas de QA</h3>
+            <p class="mt-2 flex-1 text-slate-500">Estratégia baseada em risco, casos de teste, critérios de aceite, report de bugs e análise de causa raiz.</p>
+            <div class="mt-4 flex flex-wrap gap-2 text-xs font-semibold">
+              <span class="rounded-full bg-brand-700 px-2.5 py-1 text-white">Ágil/Scrum</span>
+              <span class="rounded-full bg-slate-200 px-2.5 py-1 text-slate-700">Regressão</span>
+            </div>
+          </article>
+          <article class="flex flex-col rounded-2xl bg-white p-6 shadow-sm ring-1 ring-slate-200 transition hover:-translate-y-1 hover:shadow-md">
+            <span class="grid size-12 place-items-center rounded-xl bg-brand-50 text-sm font-extrabold text-brand-700" aria-hidden="true">CI</span>
+            <h3 class="mt-4 text-lg font-semibold">CI/CD e DevOps</h3>
+            <p class="mt-2 flex-1 text-slate-500">GitLab CI, GitHub Actions, Docker e Docker Compose, com code review em merge requests.</p>
+            <div class="mt-4 flex flex-wrap gap-2 text-xs font-semibold">
+              <span class="rounded-full bg-brand-700 px-2.5 py-1 text-white">GitLab CI</span>
+              <span class="rounded-full bg-slate-200 px-2.5 py-1 text-slate-700">Docker</span>
+            </div>
+          </article>
+          <article class="flex flex-col rounded-2xl bg-white p-6 shadow-sm ring-1 ring-slate-200 transition hover:-translate-y-1 hover:shadow-md">
+            <span class="grid size-12 place-items-center rounded-xl bg-brand-50 text-sm font-extrabold text-brand-700" aria-hidden="true">&lt;/&gt;</span>
+            <h3 class="mt-4 text-lg font-semibold">Linguagens</h3>
+            <p class="mt-2 flex-1 text-slate-500">TypeScript, JavaScript, Python, Java, SQL, PHP e C#.</p>
+            <div class="mt-4 flex flex-wrap gap-2 text-xs font-semibold">
+              <span class="rounded-full bg-brand-700 px-2.5 py-1 text-white">TypeScript</span>
+              <span class="rounded-full bg-slate-200 px-2.5 py-1 text-slate-700">Python</span>
+              <span class="rounded-full bg-slate-200 px-2.5 py-1 text-slate-700">Java</span>
+            </div>
+          </article>
+          <article class="flex flex-col rounded-2xl bg-white p-6 shadow-sm ring-1 ring-slate-200 transition hover:-translate-y-1 hover:shadow-md">
+            <span class="grid size-12 place-items-center rounded-xl bg-brand-50 text-sm font-extrabold text-brand-700" aria-hidden="true">DB</span>
+            <h3 class="mt-4 text-lg font-semibold">Stack e dados</h3>
+            <p class="mt-2 flex-1 text-slate-500">Node.js, ReactJS e Spring Boot, com PostgreSQL e MySQL.</p>
+            <div class="mt-4 flex flex-wrap gap-2 text-xs font-semibold">
+              <span class="rounded-full bg-brand-700 px-2.5 py-1 text-white">PostgreSQL</span>
+              <span class="rounded-full bg-slate-200 px-2.5 py-1 text-slate-700">React</span>
+            </div>
+          </article>
+          <article class="flex flex-col rounded-2xl bg-white p-6 shadow-sm ring-1 ring-slate-200 transition hover:-translate-y-1 hover:shadow-md">
+            <span class="grid size-12 place-items-center rounded-xl bg-brand-50 text-sm font-extrabold text-brand-700" aria-hidden="true">IA</span>
+            <h3 class="mt-4 text-lg font-semibold">IA aplicada a QA</h3>
+            <p class="mt-2 flex-1 text-slate-500">Avaliação de sistemas RAG, LLM as a judge, rubricas de qualidade e análise estatística.</p>
+            <div class="mt-4 flex flex-wrap gap-2 text-xs font-semibold">
+              <span class="rounded-full bg-brand-700 px-2.5 py-1 text-white">RAG</span>
+              <span class="rounded-full bg-slate-200 px-2.5 py-1 text-slate-700">pandas</span>
+              <span class="rounded-full bg-slate-200 px-2.5 py-1 text-slate-700">SciPy</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4) TABELA: overflow-x-auto = scroll horizontal no mobile; odd:/even: = linhas zebradas -->
+    <section id="experiencia" class="py-16" aria-labelledby="experienciaTitulo">
+      <div class="mx-auto max-w-6xl px-4">
+        <h2 id="experienciaTitulo" class="text-3xl font-bold text-brand-700">Experiência</h2>
+        <p class="mt-2 mb-6 text-slate-500">Clique em <strong>Detalhes</strong> para ver as principais entregas de cada posição.</p>
+
+        <div class="overflow-x-auto rounded-2xl shadow-sm ring-1 ring-slate-200">
+          <table class="w-full min-w-[720px] text-left text-sm">
+            <caption class="sr-only">Histórico profissional e acadêmico de Iago Lacerda</caption>
+            <thead class="bg-slate-900 text-white">
+              <tr>
+                <th scope="col" class="px-4 py-3 font-semibold">Cargo</th>
+                <th scope="col" class="px-4 py-3 font-semibold">Empresa</th>
+                <th scope="col" class="px-4 py-3 font-semibold">Período</th>
+                <th scope="col" class="px-4 py-3 font-semibold">Tecnologias</th>
+                <th scope="col" class="px-4 py-3 text-right font-semibold">Ações</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-200 [&>tr]:transition [&>tr:nth-child(odd)]:bg-slate-50 [&>tr:hover]:bg-brand-50">
+              <tr>
+                <th scope="row" class="px-4 py-3 font-semibold">Analista de QA Pleno</th>
+                <td class="px-4 py-3">Pacto Soluções</td>
+                <td class="px-4 py-3 whitespace-nowrap">08/2025 – 09/2026</td>
+                <td class="px-4 py-3">Cypress, TypeScript, GitLab CI, SQL</td>
+                <td class="px-4 py-3 text-right"><button type="button" data-experiencia="pacto" class="rounded-lg bg-brand-700 px-3 py-1.5 text-xs font-semibold text-white hover:bg-brand-800">Detalhes</button></td>
+              </tr>
+              <tr>
+                <th scope="row" class="px-4 py-3 font-semibold">Estagiário em Eng. de Software</th>
+                <td class="px-4 py-3">Braskem</td>
+                <td class="px-4 py-3 whitespace-nowrap">01/2025 – 07/2025</td>
+                <td class="px-4 py-3">PHP, C#, Python, APIs AutoCAD</td>
+                <td class="px-4 py-3 text-right"><button type="button" data-experiencia="braskem" class="rounded-lg bg-brand-700 px-3 py-1.5 text-xs font-semibold text-white hover:bg-brand-800">Detalhes</button></td>
+              </tr>
+              <tr>
+                <th scope="row" class="px-4 py-3 font-semibold">Webmaster</th>
+                <td class="px-4 py-3">Gilix TI</td>
+                <td class="px-4 py-3 whitespace-nowrap">01/2024 – 01/2025</td>
+                <td class="px-4 py-3">PHP, JavaScript, HTML, CSS</td>
+                <td class="px-4 py-3 text-right"><button type="button" data-experiencia="gilix" class="rounded-lg bg-brand-700 px-3 py-1.5 text-xs font-semibold text-white hover:bg-brand-800">Detalhes</button></td>
+              </tr>
+              <tr>
+                <th scope="row" class="px-4 py-3 font-semibold">Monitor de Cursos Full Stack</th>
+                <td class="px-4 py-3">Infinity School Salvador</td>
+                <td class="px-4 py-3 whitespace-nowrap">09/2023 – 01/2024</td>
+                <td class="px-4 py-3">Cypress, Python, React, SQL</td>
+                <td class="px-4 py-3 text-right"><button type="button" data-experiencia="infinity" class="rounded-lg bg-brand-700 px-3 py-1.5 text-xs font-semibold text-white hover:bg-brand-800">Detalhes</button></td>
+              </tr>
+              <tr>
+                <th scope="row" class="px-4 py-3 font-semibold">TCC (Projeto acadêmico)</th>
+                <td class="px-4 py-3">UCSAL</td>
+                <td class="px-4 py-3 whitespace-nowrap">2026</td>
+                <td class="px-4 py-3">Python, Java 21, Spring Boot, pgvector</td>
+                <td class="px-4 py-3 text-right"><button type="button" data-experiencia="tcc" class="rounded-lg bg-brand-700 px-3 py-1.5 text-xs font-semibold text-white hover:bg-brand-800">Detalhes</button></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- Formação e idiomas -->
+    <section id="formacao" class="bg-slate-50 py-16" aria-labelledby="formacaoTitulo">
+      <div class="mx-auto max-w-6xl px-4">
+        <h2 id="formacaoTitulo" class="mb-6 text-3xl font-bold text-brand-700">Formação e idiomas</h2>
+        <div class="grid gap-6 md:grid-cols-12">
+          <ul class="divide-y divide-slate-200 rounded-2xl bg-white shadow-sm ring-1 ring-slate-200 md:col-span-7">
+            <li class="p-4">
+              <strong>Engenharia de Software</strong> · UCSAL
+              <span class="block text-sm text-slate-500">Em andamento, conclusão prevista em 12/2026</span>
+            </li>
+            <li class="p-4">
+              <strong>Técnico em Desenvolvimento de Software</strong> · SENAI
+              <span class="block text-sm text-slate-500">Concluído</span>
+            </li>
+            <li class="p-4">
+              <strong>Cursos complementares</strong>
+              <span class="block text-sm text-slate-500">GitLab CI/CD Pipelines &amp; DevOps · RPA com Python · Chatbot WhatsApp com N8N e Uzapi</span>
+            </li>
+          </ul>
+
+          <div class="rounded-2xl bg-white p-6 shadow-sm ring-1 ring-slate-200 md:col-span-5">
+            <h3 class="mb-4 text-sm font-semibold tracking-wide text-slate-500 uppercase">Idiomas</h3>
+            <p class="mb-1 flex justify-between"><span>Português</span><span class="text-sm text-slate-500">Nativo</span></p>
+            <div class="mb-4 h-2.5 rounded-full bg-slate-200" role="progressbar" aria-label="Português: nativo" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
+              <div class="h-full w-full rounded-full bg-brand-700"></div>
+            </div>
+            <p class="mb-1 flex justify-between"><span>Inglês</span><span class="text-sm text-slate-500">Avançado</span></p>
+            <div class="mb-4 h-2.5 rounded-full bg-slate-200" role="progressbar" aria-label="Inglês: avançado" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100">
+              <div class="h-full w-4/5 rounded-full bg-brand-700"></div>
+            </div>
+            <p class="mb-1 flex justify-between"><span>Espanhol</span><span class="text-sm text-slate-500">Básico</span></p>
+            <div class="h-2.5 rounded-full bg-slate-200" role="progressbar" aria-label="Espanhol: básico" aria-valuenow="35" aria-valuemin="0" aria-valuemax="100">
+              <div class="h-full w-1/3 rounded-full bg-brand-700"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5) FORMULÁRIO: validação nativa do HTML5 + variante user-invalid: do Tailwind (sem JS para os estilos) -->
+    <section id="contato" class="py-16" aria-labelledby="contatoTitulo">
+      <div class="mx-auto max-w-3xl px-4">
+        <h2 id="contatoTitulo" class="text-3xl font-bold text-brand-700">Contato</h2>
+        <p class="mt-2 mb-6 text-slate-500">Vaga, projeto ou dúvida sobre automação de testes? Me mande uma mensagem.</p>
+
+        <div id="alertaSucesso" class="mb-4 hidden rounded-xl border border-emerald-200 bg-emerald-50 p-4 text-emerald-800" role="status">
+          Mensagem enviada! Obrigado pelo contato, retorno em breve.
+        </div>
+
+        <form id="formContato" class="grid grid-cols-1 gap-5 rounded-2xl bg-white p-6 shadow-sm ring-1 ring-slate-200 md:grid-cols-2">
+          <div>
+            <label for="nome" class="mb-1 block text-sm font-medium">Nome completo</label>
+            <input type="text" id="nome" name="nome" autocomplete="name" required minlength="3"
+                   class="peer w-full rounded-lg border border-slate-300 px-3 py-2 outline-none focus:border-brand-500 focus:ring-2 focus:ring-brand-500/30 user-invalid:border-red-500 user-invalid:ring-red-500/20">
+            <p class="mt-1 hidden text-sm text-red-600 peer-user-invalid:block">Informe seu nome (mínimo 3 caracteres).</p>
+          </div>
+          <div>
+            <label for="email" class="mb-1 block text-sm font-medium">E-mail</label>
+            <input type="email" id="email" name="email" autocomplete="email" required
+                   class="peer w-full rounded-lg border border-slate-300 px-3 py-2 outline-none focus:border-brand-500 focus:ring-2 focus:ring-brand-500/30 user-invalid:border-red-500 user-invalid:ring-red-500/20">
+            <p class="mt-1 hidden text-sm text-red-600 peer-user-invalid:block">Informe um e-mail válido.</p>
+          </div>
+          <div>
+            <label for="empresa" class="mb-1 block text-sm font-medium">Empresa <span class="text-slate-400">(opcional)</span></label>
+            <input type="text" id="empresa" name="empresa" autocomplete="organization"
+                   class="w-full rounded-lg border border-slate-300 px-3 py-2 outline-none focus:border-brand-500 focus:ring-2 focus:ring-brand-500/30">
+          </div>
+          <div>
+            <label for="assunto" class="mb-1 block text-sm font-medium">Assunto</label>
+            <select id="assunto" name="assunto" required
+                    class="peer w-full rounded-lg border border-slate-300 bg-white px-3 py-2 outline-none focus:border-brand-500 focus:ring-2 focus:ring-brand-500/30 user-invalid:border-red-500">
+              <option value="" selected disabled>Selecione...</option>
+              <option>Vaga de QA</option>
+              <option>Projeto / freelance</option>
+              <option>Mentoria em automação</option>
+              <option>Outro</option>
+            </select>
+            <p class="mt-1 hidden text-sm text-red-600 peer-user-invalid:block">Escolha um assunto.</p>
+          </div>
+          <div class="md:col-span-2">
+            <label for="mensagem" class="mb-1 block text-sm font-medium">Mensagem</label>
+            <textarea id="mensagem" name="mensagem" rows="5" required minlength="10"
+                      class="peer w-full rounded-lg border border-slate-300 px-3 py-2 outline-none focus:border-brand-500 focus:ring-2 focus:ring-brand-500/30 user-invalid:border-red-500 user-invalid:ring-red-500/20"></textarea>
+            <p class="mt-1 hidden text-sm text-red-600 peer-user-invalid:block">Escreva uma mensagem (mínimo 10 caracteres).</p>
+          </div>
+          <div class="flex items-start gap-2 md:col-span-2">
+            <input type="checkbox" id="consentimento" required class="mt-1 size-4 accent-brand-700">
+            <label for="consentimento" class="text-sm">Concordo em ser contatado pelo e-mail informado.</label>
+          </div>
+          <div class="md:col-span-2">
+            <button type="submit" class="w-full rounded-xl bg-brand-700 px-8 py-3 font-semibold text-white shadow transition hover:bg-brand-800 focus-visible:ring-4 focus-visible:ring-brand-500/40 md:w-auto">
+              Enviar mensagem
+            </button>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="bg-slate-900 py-12 text-slate-400">
+    <div class="mx-auto max-w-6xl px-4">
+      <div class="grid grid-cols-2 gap-8 md:grid-cols-12">
+        <div class="col-span-2 md:col-span-5">
+          <p class="text-lg font-semibold text-white">Iago Lacerda</p>
+          <p class="mt-2">Analista de QA focado em automação de testes, qualidade contínua e CI/CD.</p>
+        </div>
+        <nav class="md:col-span-3" aria-label="Links do rodapé">
+          <p class="mb-2 font-semibold text-white">Navegação</p>
+          <ul class="space-y-1">
+            <li><a href="#destaques" class="hover:text-white">Destaques</a></li>
+            <li><a href="#competencias" class="hover:text-white">Competências</a></li>
+            <li><a href="#experiencia" class="hover:text-white">Experiência</a></li>
+          </ul>
+        </nav>
+        <div class="md:col-span-4">
+          <p class="mb-2 font-semibold text-white">Redes</p>
+          <ul class="space-y-1">
+            <li><a href="https://linkedin.com/in/iago-lacerda" target="_blank" rel="noopener" class="hover:text-white">LinkedIn</a></li>
+            <li><a href="https://github.com/IagoLacerdaDev" target="_blank" rel="noopener" class="hover:text-white">GitHub</a></li>
+            <li><a href="https://iagolacerda.pages.dev" target="_blank" rel="noopener" class="hover:text-white">Portfólio</a></li>
+          </ul>
+        </div>
+      </div>
+      <hr class="my-8 border-slate-700">
+      <p class="text-center text-sm">© 2026 Iago Lacerda · Feito com Tailwind CSS</p>
+    </div>
+  </footer>
+
+  <!-- 6) MODAL: elemento nativo <dialog>; o overlay é o pseudo-elemento ::backdrop (variante backdrop:) -->
+  <dialog id="modalDetalhes" aria-labelledby="modalTitulo"
+          class="m-auto w-[calc(100%-2rem)] max-w-2xl rounded-2xl p-0 shadow-2xl backdrop:bg-slate-900/60 backdrop:backdrop-blur-sm open:animate-aparecer motion-reduce:animate-none">
+    <div class="flex items-start justify-between gap-4 bg-brand-700 px-6 py-4 text-white">
+      <div>
+        <h2 id="modalTitulo" class="text-lg font-semibold">Detalhes</h2>
+        <p id="modalSubtitulo" class="text-sm text-white/75"></p>
+      </div>
+      <button type="button" data-fechar class="rounded-lg p-1 text-white/80 hover:bg-white/10 hover:text-white" aria-label="Fechar">
+        <svg class="size-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+    </div>
+    <div class="max-h-[60vh] overflow-y-auto px-6 py-5">
+      <ul id="modalItens" class="list-disc space-y-2 pl-5 text-slate-700"></ul>
+    </div>
+    <div class="flex flex-col-reverse gap-2 border-t border-slate-200 px-6 py-4 sm:flex-row sm:justify-end">
+      <button type="button" data-fechar class="rounded-lg border border-slate-300 px-4 py-2 font-medium text-slate-700 hover:bg-slate-100">Fechar</button>
+      <button type="button" id="modalContato" class="rounded-lg bg-brand-700 px-4 py-2 font-semibold text-white hover:bg-brand-800">Conversar sobre isso</button>
+    </div>
+  </dialog>
+
+  <script src="script.js"></script>
+</body>
+</html>

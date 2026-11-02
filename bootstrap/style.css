@@ -1,0 +1,87 @@
+/*
+ * Ajustes mínimos sobre o Bootstrap: só a cor da marca e o visual dos slides.
+ * Layout, grid, espaçamentos e responsividade vêm das classes do Bootstrap.
+ */
+:root {
+  --brand: #1b3a6b;
+  --brand-dark: #142c52;
+  --brand-darker: #0f2240;
+}
+
+/* Compensa a navbar fixa ao navegar pelas âncoras */
+html {
+  scroll-padding-top: 4.5rem;
+}
+
+body {
+  padding-top: 56px;
+}
+
+.bg-brand {
+  background-color: var(--brand) !important;
+}
+
+.text-brand {
+  color: var(--brand) !important;
+}
+
+.text-white-75 {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* Botão da marca usando as variáveis CSS do próprio Bootstrap 5.3 */
+.btn-brand {
+  --bs-btn-color: #fff;
+  --bs-btn-bg: var(--brand);
+  --bs-btn-border-color: var(--brand);
+  --bs-btn-hover-color: #fff;
+  --bs-btn-hover-bg: var(--brand-dark);
+  --bs-btn-hover-border-color: var(--brand-dark);
+  --bs-btn-active-color: #fff;
+  --bs-btn-active-bg: var(--brand-darker);
+  --bs-btn-active-border-color: var(--brand-darker);
+  --bs-btn-focus-shadow-rgb: 27, 58, 107;
+}
+
+.brand-mark {
+  display: inline-grid;
+  place-items: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 0.5rem;
+  background: #fff;
+  color: var(--brand);
+  font-size: 0.85rem;
+  font-weight: 800;
+}
+
+.hero {
+  background-image: linear-gradient(135deg, var(--brand) 0%, #2f5aa8 100%);
+}
+
+.skill-icon {
+  display: inline-grid;
+  place-items: center;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 0.75rem;
+  background: #e7eefa;
+  color: var(--brand);
+  font-weight: 800;
+  font-size: 0.9rem;
+}
+
+/* Slides do carrossel: fundos em gradiente no lugar de fotos */
+.slide {
+  min-height: 340px;
+}
+
+.slide-1 { background: linear-gradient(135deg, #1b3a6b, #2f5aa8); }
+.slide-2 { background: linear-gradient(135deg, #0f5132, #198754); }
+.slide-3 { background: linear-gradient(135deg, #5c2d91, #8e44ad); }
+
+@media (min-width: 768px) {
+  .w-md-auto {
+    width: auto !important;
+  }
+}
