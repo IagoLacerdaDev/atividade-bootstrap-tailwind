@@ -1,6 +1,3 @@
-/*
- * Ajustes mínimos sobre o Bootstrap: só a cor da marca e o visual dos slides.
- * Layout, grid, espaçamentos e responsividade vêm das classes do Bootstrap.
  */
 :root {
   --brand: #1b3a6b;
@@ -8,7 +5,6 @@
   --brand-darker: #0f2240;
 }
 
-/* Compensa a navbar fixa ao navegar pelas âncoras */
 html {
   scroll-padding-top: 4.5rem;
 }
@@ -29,7 +25,6 @@ body {
   color: rgba(255, 255, 255, 0.8);
 }
 
-/* Botão da marca usando as variáveis CSS do próprio Bootstrap 5.3 */
 .btn-brand {
   --bs-btn-color: #fff;
   --bs-btn-bg: var(--brand);
@@ -69,6 +64,14 @@ body {
   color: var(--brand);
   font-weight: 800;
   font-size: 0.9rem;
+}
+
+#botao-contato{
+  padding-top: 0.5rem;
+}
+
+#acoes{
+  padding-left: 1.124rem;
 }
 
 /* Slides do carrossel: fundos em gradiente no lugar de fotos */

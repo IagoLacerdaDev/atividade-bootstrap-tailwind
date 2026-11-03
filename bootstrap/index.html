@@ -6,18 +6,14 @@
   <meta name="description" content="Portfólio de Iago Lacerda, Analista de QA com foco em automação de testes E2E, testes de API e CI/CD.">
   <title>Iago Lacerda | Analista de QA (Bootstrap)</title>
 
-  <!-- Bootstrap 5 via CDN -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-  <!-- Apenas ajustes de cor da marca (o layout vem todo do Bootstrap) -->
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <a class="visually-hidden-focusable position-absolute top-0 start-0 m-2 btn btn-light z-3" href="#conteudo">Pular para o conteúdo</a>
 
-  <!-- ===================== HEADER ===================== -->
   <header>
-    <!-- 1) NAVBAR: colapsa em menu hambúrguer abaixo de 992px (navbar-expand-lg) -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-brand fixed-top shadow-sm" aria-label="Navegação principal">
       <div class="container">
         <a class="navbar-brand d-flex align-items-center gap-2 fw-semibold" href="#inicio">
@@ -34,13 +30,12 @@
             <li class="nav-item"><a class="nav-link" href="#competencias">Competências</a></li>
             <li class="nav-item"><a class="nav-link" href="#experiencia">Experiência</a></li>
             <li class="nav-item"><a class="nav-link" href="#formacao">Formação</a></li>
-            <li class="nav-item"><a class="btn btn-light btn-sm ms-lg-3 mt-2 mt-lg-0 px-3" href="#contato">Contato</a></li>
+            <li id="botao-contato"  class="nav-item"><a class="btn btn-light btn-sm ms-lg-3 mt-2 mt-lg-0 px-3" href="#contato">Contato</a></li>
           </ul>
         </div>
       </div>
     </nav>
 
-    <!-- Apresentação -->
     <div id="inicio" class="hero bg-brand text-white">
       <div class="container py-5">
         <div class="row align-items-center g-4 py-lg-4">
@@ -84,10 +79,8 @@
     </div>
   </header>
 
-  <!-- ===================== MAIN ===================== -->
   <main id="conteudo">
 
-    <!-- 2) CARROSSEL: destaques da carreira -->
     <section id="destaques" class="py-5" aria-labelledby="destaquesTitulo">
       <div class="container">
         <h2 id="destaquesTitulo" class="fw-bold text-brand">Destaques</h2>
@@ -143,7 +136,6 @@
       </div>
     </section>
 
-    <!-- 3) CARDS: competências em grid responsivo (1 / 2 / 3 colunas) -->
     <section id="competencias" class="py-5 bg-body-tertiary" aria-labelledby="competenciasTitulo">
       <div class="container">
         <h2 id="competenciasTitulo" class="fw-bold text-brand">Competências</h2>
@@ -241,7 +233,7 @@
         <h2 id="experienciaTitulo" class="fw-bold text-brand">Experiência</h2>
         <p class="text-secondary mb-4">Clique em <strong>Detalhes</strong> para ver as principais entregas de cada posição.</p>
 
-        <div class="table-responsive shadow-sm rounded-3">
+        <div id="tabela-experiencias" class="table-responsive shadow-sm rounded-3">
           <table class="table table-striped table-hover align-middle mb-0">
             <caption class="visually-hidden">Histórico profissional e acadêmico de Iago Lacerda</caption>
             <thead class="table-dark">
@@ -250,7 +242,7 @@
                 <th scope="col">Empresa</th>
                 <th scope="col">Período</th>
                 <th scope="col">Tecnologias</th>
-                <th scope="col" class="text-end">Ações</th>
+                <th id="acoes" scope="col" >Ações</th>
               </tr>
             </thead>
             <tbody>
@@ -259,35 +251,35 @@
                 <td>Pacto Soluções</td>
                 <td class="text-nowrap">08/2025 – 09/2026</td>
                 <td>Cypress, TypeScript, GitLab CI, SQL</td>
-                <td class="text-end"><button type="button" class="btn btn-sm btn-brand" data-bs-toggle="modal" data-bs-target="#modalDetalhes" data-experiencia="pacto">Detalhes</button></td>
+                <td><button type="button" class="btn btn-sm btn-brand" data-bs-toggle="modal" data-bs-target="#modalDetalhes" data-experiencia="pacto">Detalhes</button></td>
               </tr>
               <tr>
                 <th scope="row">Estagiário em Eng. de Software</th>
                 <td>Braskem</td>
                 <td class="text-nowrap">01/2025 – 07/2025</td>
                 <td>PHP, C#, Python, APIs AutoCAD</td>
-                <td class="text-end"><button type="button" class="btn btn-sm btn-brand" data-bs-toggle="modal" data-bs-target="#modalDetalhes" data-experiencia="braskem">Detalhes</button></td>
+                <td ><button type="button" class="btn btn-sm btn-brand" data-bs-toggle="modal" data-bs-target="#modalDetalhes" data-experiencia="braskem">Detalhes</button></td>
               </tr>
               <tr>
                 <th scope="row">Webmaster</th>
                 <td>Gilix TI</td>
                 <td class="text-nowrap">01/2024 – 01/2025</td>
                 <td>PHP, JavaScript, HTML, CSS</td>
-                <td class="text-end"><button type="button" class="btn btn-sm btn-brand" data-bs-toggle="modal" data-bs-target="#modalDetalhes" data-experiencia="gilix">Detalhes</button></td>
+                <td ><button type="button" class="btn btn-sm btn-brand" data-bs-toggle="modal" data-bs-target="#modalDetalhes" data-experiencia="gilix">Detalhes</button></td>
               </tr>
               <tr>
                 <th scope="row">Monitor de Cursos Full Stack</th>
                 <td>Infinity School Salvador</td>
                 <td class="text-nowrap">09/2023 – 01/2024</td>
                 <td>Cypress, Python, React, SQL</td>
-                <td class="text-end"><button type="button" class="btn btn-sm btn-brand" data-bs-toggle="modal" data-bs-target="#modalDetalhes" data-experiencia="infinity">Detalhes</button></td>
+                <td ><button type="button" class="btn btn-sm btn-brand" data-bs-toggle="modal" data-bs-target="#modalDetalhes" data-experiencia="infinity">Detalhes</button></td>
               </tr>
               <tr>
                 <th scope="row">TCC (Projeto acadêmico)</th>
                 <td>UCSAL</td>
                 <td class="text-nowrap">2026</td>
                 <td>Python, Java 21, Spring Boot, pgvector</td>
-                <td class="text-end"><button type="button" class="btn btn-sm btn-brand" data-bs-toggle="modal" data-bs-target="#modalDetalhes" data-experiencia="tcc">Detalhes</button></td>
+                <td ><button type="button" class="btn btn-sm btn-brand" data-bs-toggle="modal" data-bs-target="#modalDetalhes" data-experiencia="tcc">Detalhes</button></td>
               </tr>
             </tbody>
           </table>
