@@ -73,16 +73,13 @@ document.getElementById('modalContato').addEventListener('click', () => {
   bootstrap.Modal.getInstance(modalDetalhes).hide();
 });
 
-// Só rola até o formulário depois que o modal terminou de fechar
 modalDetalhes.addEventListener('hidden.bs.modal', () => {
   if (!irParaContato) return;
   irParaContato = false;
   document.getElementById('contato').scrollIntoView({ behavior: 'smooth' });
-  // setTimeout: o Bootstrap devolve o foco ao botão que abriu o modal logo após este evento
   setTimeout(() => document.getElementById('nome').focus({ preventScroll: true }));
 });
 
-// ---------- Navbar: fecha o menu mobile ao clicar em um link ----------
 const menuPrincipal = document.getElementById('menuPrincipal');
 menuPrincipal.querySelectorAll('a').forEach((link) => {
   link.addEventListener('click', () => {
@@ -92,7 +89,6 @@ menuPrincipal.querySelectorAll('a').forEach((link) => {
   });
 });
 
-// ---------- Formulário: validação HTML5 com os estilos do Bootstrap ----------
 const formContato = document.getElementById('formContato');
 const alertaSucesso = document.getElementById('alertaSucesso');
 
@@ -106,7 +102,6 @@ formContato.addEventListener('submit', (event) => {
     return;
   }
 
-  // Sem back-end: apenas simula o envio
   formContato.reset();
   formContato.classList.remove('was-validated');
   alertaSucesso.classList.remove('d-none');

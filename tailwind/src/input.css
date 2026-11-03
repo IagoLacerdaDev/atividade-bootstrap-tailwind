@@ -1,11 +1,5 @@
-/*
- * Arquivo de entrada do Tailwind. O comando "npm run build" lê este arquivo,
- * procura as classes usadas em index.html e script.js e gera dist/output.css
- * contendo só essas classes.
- */
 @import "tailwindcss";
 
-/* Tema: cria as cores "brand-*", que viram classes como bg-brand-700, text-brand-700, ring-brand-500... */
 @theme {
   --color-brand-50: #eef3fb;
   --color-brand-100: #dbe5f5;
@@ -15,7 +9,6 @@
   --color-brand-800: #142c52;
   --color-brand-900: #0f2240;
 
-  /* Animação de entrada do modal -> classe animate-aparecer */
   --animate-aparecer: aparecer 0.2s ease-out;
   @keyframes aparecer {
     from { opacity: 0; transform: translateY(1rem) scale(0.98); }

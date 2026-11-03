@@ -1,6 +1,5 @@
 // Tailwind só fornece estilos: menu, carrossel e modal são implementados aqui em JavaScript nativo.
 
-// Conteúdo do modal de detalhes, indexado pelo atributo data-experiencia dos botões
 const experiencias = {
   pacto: {
     titulo: 'Analista de QA Pleno',
@@ -49,7 +48,6 @@ const experiencias = {
   }
 };
 
-// ---------- 1) Navbar: abre/fecha o menu mobile alternando a classe "hidden" ----------
 const botaoMenu = document.getElementById('botaoMenu');
 const menuPrincipal = document.getElementById('menuPrincipal');
 
@@ -65,12 +63,10 @@ botaoMenu.addEventListener('click', () => {
   definirMenuAberto(menuPrincipal.classList.contains('hidden'));
 });
 
-// Fecha o menu ao escolher um link (no desktop o menu fica visível por causa do md:block)
 menuPrincipal.querySelectorAll('a').forEach((link) => {
   link.addEventListener('click', () => definirMenuAberto(false));
 });
 
-// ---------- 2) Carrossel ----------
 const carrossel = document.getElementById('carrossel');
 const trilho = carrossel.querySelector('[data-trilho]');
 const slides = [...trilho.children];
@@ -79,7 +75,6 @@ const INTERVALO_AUTOPLAY = 5000;
 let slideAtual = 0;
 let timerAutoplay = null;
 
-// Cria um indicador (dot) por slide
 const indicadores = slides.map((_, indice) => {
   const dot = document.createElement('button');
   dot.type = 'button';
@@ -102,7 +97,6 @@ function irParaSlide(indice) {
 
   indicadores.forEach((dot, i) => {
     const ativo = i === slideAtual;
-    // O dot ativo fica mais largo e opaco
     dot.classList.toggle('w-8', ativo);
     dot.classList.toggle('bg-white', ativo);
     dot.classList.toggle('w-2.5', !ativo);
@@ -125,19 +119,16 @@ function pararAutoplay() {
 carrossel.querySelector('[data-anterior]').addEventListener('click', () => irParaSlide(slideAtual - 1));
 carrossel.querySelector('[data-proximo]').addEventListener('click', () => irParaSlide(slideAtual + 1));
 
-// Pausa enquanto o usuário interage com o carrossel
 carrossel.addEventListener('mouseenter', pararAutoplay);
 carrossel.addEventListener('mouseleave', iniciarAutoplay);
 carrossel.addEventListener('focusin', pararAutoplay);
 carrossel.addEventListener('focusout', iniciarAutoplay);
 
-// Navegação por teclado (setas) quando o foco está dentro do carrossel
 carrossel.addEventListener('keydown', (event) => {
   if (event.key === 'ArrowLeft') irParaSlide(slideAtual - 1);
   if (event.key === 'ArrowRight') irParaSlide(slideAtual + 1);
 });
 
-// Deslizar com o dedo no celular
 let toqueInicialX = null;
 carrossel.addEventListener('touchstart', (event) => {
   toqueInicialX = event.touches[0].clientX;
@@ -154,7 +145,6 @@ carrossel.addEventListener('touchend', (event) => {
 irParaSlide(0);
 iniciarAutoplay();
 
-// ---------- 3) Modal com <dialog> nativo ----------
 const modal = document.getElementById('modalDetalhes');
 
 function abrirModal(chave) {
@@ -169,7 +159,6 @@ function abrirModal(chave) {
     return item;
   }));
 
-  // showModal() cria o overlay (::backdrop), prende o foco e fecha com Esc
   modal.showModal();
 }
 
@@ -181,7 +170,6 @@ modal.querySelectorAll('[data-fechar]').forEach((botao) => {
   botao.addEventListener('click', () => modal.close());
 });
 
-// Fecha ao clicar fora: o clique no overlay tem o próprio <dialog> como alvo
 modal.addEventListener('click', (event) => {
   if (event.target === modal) modal.close();
 });
@@ -192,16 +180,12 @@ document.getElementById('modalContato').addEventListener('click', () => {
   document.getElementById('nome').focus({ preventScroll: true });
 });
 
-// ---------- 4) Formulário ----------
-// A validação é a nativa do HTML5 (required, type="email", minlength): o evento submit
-// só dispara quando todos os campos são válidos. Os estilos de erro vêm de user-invalid:.
 const formContato = document.getElementById('formContato');
 const alertaSucesso = document.getElementById('alertaSucesso');
 
 formContato.addEventListener('submit', (event) => {
   event.preventDefault();
 
-  // Sem back-end: apenas simula o envio
   formContato.reset();
   alertaSucesso.classList.remove('hidden');
   alertaSucesso.scrollIntoView({ behavior: 'smooth', block: 'center' });
